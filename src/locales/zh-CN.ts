@@ -7,8 +7,9 @@ const localeData: LocaleData = {
   initial: "初始化中",
   previewHelp: "拖动分割线对比压缩效果：左边是原始图，右边是压缩图",
   uploadCard: {
-    title: "选取文件到这里，支持拖拽文件和文件夹",
+    title: "选取图片到这里，支持拖拽图片和文件夹",
     subTitle: "开源的批量图片压缩工具，支持 %s 格式",
+    pasteHint: "💡 提示：您也可以复制图片后按 Ctrl+V (Cmd+V) 粘贴",
   },
   listAction: {
     batchAppend: "批量添加",
@@ -43,6 +44,12 @@ const localeData: LocaleData = {
     fitHeight: "设置高度，宽度自动缩放",
     setShort: "设置短边，长边自动缩放",
     setLong: "设置长边，短边自动缩放",
+    setCropRatio: "裁剪模式，设置裁剪比例",
+    setCropSize: "裁剪模式，设置裁剪尺寸",
+    cwRatioPlaceholder: "设置宽度比例",
+    chRatioPlaceholder: "设置高度比例",
+    cwSizePlaceholder: "设置裁剪宽度",
+    chSizePlaceholder: "设置裁剪高度",
     widthPlaceholder: "设置输出图片宽度",
     heightPlaceholder: "设置输出图片高度",
     shortPlaceholder: "设置输出图片短边长度",
@@ -58,6 +65,7 @@ const localeData: LocaleData = {
     outputFormat: "设置输出格式",
     outputFormatPlaceholder: "选择输出图片格式",
     transparentFillDesc: "选择透明填充色",
+    cropCompareWarning: "裁剪模式不支持对比预览",
   },
   error404: {
     backHome: "返回首页",

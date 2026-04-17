@@ -11,6 +11,7 @@ const localeData: LocaleData = {
   uploadCard: {
     title: "選取文件到這裡，支援拖曳文件和資料夾",
     subTitle: "開源的批量圖片壓縮工具，支援 %s 格式",
+    pasteHint: "💡 提示：您也可以複製圖片後按 Ctrl+V (Cmd+V) 貼上",
   },
   listAction: {
     batchAppend: "大量新增",
@@ -45,6 +46,12 @@ const localeData: LocaleData = {
     fitHeight: "設定高度，寬度自動縮放",
     setShort: "設定短邊，長邊自動縮放",
     setLong: "設定長邊，短邊自動縮放",
+    setCropRatio: "裁切模式，設定裁切比例",
+    setCropSize: "裁切模式，設定裁切尺寸",
+    cwRatioPlaceholder: "設定寬度比例",
+    chRatioPlaceholder: "設定高度比例",
+    cwSizePlaceholder: "設定裁切寬度",
+    chSizePlaceholder: "設定裁切高度",
     widthPlaceholder: "設定輸出圖片寬度",
     heightPlaceholder: "設定輸出圖片高度",
     shortPlaceholder: "設定輸出圖片短邊長度",
@@ -60,6 +67,7 @@ const localeData: LocaleData = {
     outputFormat: "設定輸出格式",
     outputFormatPlaceholder: "選擇輸出圖片格式",
     transparentFillDesc: "選擇透明填充色",
+    cropCompareWarning: "裁切模式不支援比較預覽",
   },
   error404: {
     backHome: "返回首頁",

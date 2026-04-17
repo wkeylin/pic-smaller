@@ -8,9 +8,9 @@ const localeData: LocaleData = {
   previewHelp:
     "Sıkıştırma etkisini karşılaştırmak için bölme çizgisini sürükleyin: soldaki orijinal görüntü, sağdaki sıkıştırılmış görüntü",
   uploadCard: {
-    title: "Dosyaları buradan seçin, dosya ve klasör sürüklemeyi destekler",
-    subTitle:
-      "Açık kaynaklı toplu resim sıkıştırma aracı, %s formatını destekler",
+    title: "Resimlerinizi buraya bırakın",
+    subTitle: "Desteklenen formatlar: %s",
+    pasteHint: "💡 Ctrl+V ile yapıştırın veya resimleri sürükleyin",
   },
   listAction: {
     batchAppend: "Toplu ekle",
@@ -46,6 +46,12 @@ const localeData: LocaleData = {
     fitHeight: "Yüksekliği ayarla, genişlik otomatik ayarlanır",
     setShort: "Kısa kenarı ayarla, uzun kenar otomatik ayarlanır",
     setLong: "Uzun kenarı ayarla, kısa kenar otomatik ayarlanır",
+    setCropRatio: "Kırpma modu, kırpma oranını ayarlayın",
+    setCropSize: "Kırpma modu, kırpma boyutunu ayarla",
+    cwRatioPlaceholder: "Genişlik oranını ayarla",
+    chRatioPlaceholder: "Yükseklik oranını ayarla",
+    cwSizePlaceholder: "Kırpma genişliğini ayarla",
+    chSizePlaceholder: "Kırpma yüksekliğini ayarla",
     widthPlaceholder: "Çıktının genişliğini ayarlayın",
     heightPlaceholder: "Çıktının yüksekliğini ayarlayın",
     shortPlaceholder: "Çıktının kısa kenar uzunluğunu ayarlayın",
@@ -61,6 +67,7 @@ const localeData: LocaleData = {
     outputFormat: "Çıktı formatını ayarla",
     outputFormatPlaceholder: "Çıktı formatını seçin",
     transparentFillDesc: "Şeffaflık rengini seçin",
+    cropCompareWarning: "Kırpma modu karşılaştırma önizlemesini desteklemiyor",
   },
   error404: {
     backHome: "Ana sayfaya dön",

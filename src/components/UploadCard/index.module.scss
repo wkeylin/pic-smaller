@@ -3,43 +3,73 @@
   position: relative;
   cursor: pointer;
   user-select: none;
-  background-color: #f5f5f5;
+  background-color: #f7f7f7;
+  border: 2px dashed #e0e0e0;
   overflow: hidden;
   box-sizing: border-box;
-  &:active {
-    background-color: darken($color: #f5f5f5, $amount: 5);
+  min-height: 320px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #078249;
+    background-color: #f9f9f9;
   }
+
+  &:active {
+    background-color: darken($color: #f9f9f9, $amount: 3);
+  }
+
   > input {
     display: none;
   }
 
   &.active {
-    background-color: darken($color: #f5f5f5, $amount: 5);
+    border-color: #078249;
+    background-color: rgba(7, 130, 73, 0.05);
   }
 }
 
 .inner {
   line-height: 1;
+  padding: 32px 20px;
+  
   svg {
-    width: 60px;
-    height: 60px;
+    width: 64px;
+    height: 64px;
     path {
-      fill: #1da565;
+      fill: #078249;
+      transition: fill 0.3s ease;
     }
   }
+  
   > span:nth-child(2) {
-    margin-top: 16px;
-    font-size: 22px;
-    font-weight: bold;
+    margin-top: 24px;
+    font-size: 24px;
+    font-weight: 600;
     text-align: center;
     padding: 0 16px;
+    color: #333;
   }
+  
   > div:nth-child(3) {
-    margin-top: 8px;
-    color: #aaa;
+    margin-top: 12px;
+    color: #666;
     text-align: center;
     padding: 0 16px;
     line-height: 1.6;
+    max-width: 480px;
+  }
+  
+  .pasteHint {
+    margin-top: 24px;
+    color: #078249;
+    text-align: center;
+    padding: 12px 24px;
+    background-color: rgba(7, 130, 73, 0.08);
+    border-radius: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    border-left: 4px solid #078249;
   }
 }
 

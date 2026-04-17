@@ -2,6 +2,7 @@ import {
   Checkbox,
   ColorPicker,
   Divider,
+  Flex,
   InputNumber,
   Select,
   Slider,
@@ -33,6 +34,14 @@ export const CompressOption = observer(() => {
       value: "setLong",
       label: gstate.locale?.optionPannel?.setLong,
     },
+    {
+      value: "setCropRatio",
+      label: gstate.locale?.optionPannel?.setCropRatio,
+    },
+    {
+      value: "setCropSize",
+      label: gstate.locale?.optionPannel?.setCropSize,
+    },
   ];
 
   const getFormatOptions = () => {
@@ -52,55 +61,115 @@ export const CompressOption = observer(() => {
   let input: React.ReactNode = null;
   if (resizeMethod === "fitWidth") {
     input = (
-      <InputNumber
-        min={0}
-        step={1}
-        disabled={disabled}
-        placeholder={gstate.locale?.optionPannel?.widthPlaceholder}
-        value={homeState.tempOption.resize.width}
-        onChange={(value) => {
-          homeState.tempOption.resize.width = value!;
-        }}
-      />
+      <div className={style.resizeInput}>
+        <InputNumber
+          min={0}
+          step={1}
+          disabled={disabled}
+          placeholder={gstate.locale?.optionPannel?.widthPlaceholder}
+          value={homeState.tempOption.resize.width}
+          onChange={(value) => {
+            homeState.tempOption.resize.width = value!;
+          }}
+        />
+      </div>
     );
   } else if (resizeMethod === "fitHeight") {
     input = (
-      <InputNumber
-        min={0}
-        step={1}
-        disabled={disabled}
-        placeholder={gstate.locale?.optionPannel?.heightPlaceholder}
-        value={homeState.tempOption.resize.height}
-        onChange={(value) => {
-          homeState.tempOption.resize.height = value!;
-        }}
-      />
+      <div className={style.resizeInput}>
+        <InputNumber
+          min={0}
+          step={1}
+          disabled={disabled}
+          placeholder={gstate.locale?.optionPannel?.heightPlaceholder}
+          value={homeState.tempOption.resize.height}
+          onChange={(value) => {
+            homeState.tempOption.resize.height = value!;
+          }}
+        />
+      </div>
     );
   } else if (resizeMethod === "setShort") {
     input = (
-      <InputNumber
-        min={0}
-        step={1}
-        disabled={disabled}
-        placeholder={gstate.locale?.optionPannel?.shortPlaceholder}
-        value={homeState.tempOption.resize.short}
-        onChange={(value) => {
-          homeState.tempOption.resize.short = value!;
-        }}
-      />
+      <div className={style.resizeInput}>
+        <InputNumber
+          min={0}
+          step={1}
+          disabled={disabled}
+          placeholder={gstate.locale?.optionPannel?.shortPlaceholder}
+          value={homeState.tempOption.resize.short}
+          onChange={(value) => {
+            homeState.tempOption.resize.short = value!;
+          }}
+        />
+      </div>
     );
   } else if (resizeMethod === "setLong") {
     input = (
-      <InputNumber
-        min={0}
-        step={1}
-        disabled={disabled}
-        placeholder={gstate.locale?.optionPannel?.longPlaceholder}
-        value={homeState.tempOption.resize.long}
-        onChange={(value) => {
-          homeState.tempOption.resize.long = value!;
-        }}
-      />
+      <div className={style.resizeInput}>
+        <InputNumber
+          min={0}
+          step={1}
+          disabled={disabled}
+          placeholder={gstate.locale?.optionPannel?.longPlaceholder}
+          value={homeState.tempOption.resize.long}
+          onChange={(value) => {
+            homeState.tempOption.resize.long = value!;
+          }}
+        />
+      </div>
+    );
+  } else if (resizeMethod === "setCropRatio") {
+    input = (
+      <Flex align="center" className={style.cropInput}>
+        <InputNumber
+          min={1}
+          step={1}
+          disabled={disabled}
+          placeholder={gstate.locale?.optionPannel?.cwRatioPlaceholder}
+          value={homeState.tempOption.resize.cropWidthRatio}
+          onChange={(value) => {
+            homeState.tempOption.resize.cropWidthRatio = value!;
+          }}
+        />
+        <div>:</div>
+        <InputNumber
+          min={1}
+          step={1}
+          disabled={disabled}
+          placeholder={gstate.locale?.optionPannel?.chRatioPlaceholder}
+          value={homeState.tempOption.resize.cropHeightRatio}
+          onChange={(value) => {
+            homeState.tempOption.resize.cropHeightRatio = value!;
+          }}
+        />
+      </Flex>
+    );
+  } else if (resizeMethod === "setCropSize") {
+    input = (
+      <Flex align="center" className={style.cropInput}>
+        <InputNumber
+          min={1}
+          step={1}
+          disabled={disabled}
+          placeholder={gstate.locale?.optionPannel?.cwSizePlaceholder}
+          value={homeState.tempOption.resize.cropWidthSize}
+          onChange={(value) => {
+            homeState.tempOption.resize.cropWidthSize = value!;
+          }}
+        />
+        <div>×</div>
+        <InputNumber
+          min={1}
+          step={1}
+          disabled={disabled}
+          placeholder={gstate.locale?.optionPannel?.chSizePlaceholder}
+          value={homeState.tempOption.resize.cropHeightSize}
+          onChange={(value) => {
+            homeState.tempOption.resize.cropHeightSize = value!;
+          }}
+        />
+      </Flex>
     );
   }
 
@@ -127,9 +196,9 @@ export const CompressOption = observer(() => {
 
   return (
     <>
-      <Divider orientation="left" orientationMargin="0">
+      <div className={style.olabel}>
         {gstate.locale?.optionPannel.resizeLable}
-      </Divider>
+      </div>
       <OptionItem>
         <Select
           style={{ width: "100%" }}
@@ -145,16 +214,21 @@ export const CompressOption = observer(() => {
               height: undefined,
               short: undefined,
               long: undefined,
+              cropWidthRatio: undefined,
+              cropHeightRatio: undefined,
+              cropWidthSize: undefined,
+              cropHeightSize: undefined,
             };
           }}
         />
-
-        {input && <div className={style.resizeInput}>{input}</div>}
+        {input}
       </OptionItem>
 
-      <Divider orientation="left" orientationMargin="0">
+      <Divider />
+
+      <div className={style.olabel}>
         {gstate.locale?.optionPannel.outputFormat}
-      </Divider>
+      </div>
       <OptionItem>
         <Select
           style={{ width: "100%" }}
@@ -171,9 +245,10 @@ export const CompressOption = observer(() => {
       {/* Colorpicker option */}
       {colorPicker}
 
-      <Divider orientation="left" orientationMargin="0">
+      <Divider />
+      <div className={style.olabel}>
         {gstate.locale?.optionPannel.jpegLable}
-      </Divider>
+      </div>
 
       <OptionItem desc={gstate.locale?.optionPannel?.qualityTitle}>
         <Slider
@@ -189,9 +264,8 @@ export const CompressOption = observer(() => {
         />
       </OptionItem>
 
-      <Divider orientation="left" orientationMargin="0">
-        {gstate.locale?.optionPannel.pngLable}
-      </Divider>
+      <Divider />
+      <div className={style.olabel}>{gstate.locale?.optionPannel.pngLable}</div>
 
       <OptionItem desc={gstate.locale?.optionPannel.colorsDesc}>
         <Slider
@@ -221,9 +295,8 @@ export const CompressOption = observer(() => {
         />
       </OptionItem>
 
-      <Divider orientation="left" orientationMargin="0">
-        {gstate.locale?.optionPannel.gifLable}
-      </Divider>
+      <Divider />
+      <div className={style.olabel}>{gstate.locale?.optionPannel.gifLable}</div>
 
       <OptionItem>
         <Checkbox
@@ -253,9 +326,10 @@ export const CompressOption = observer(() => {
 
       {Mimes.avif && (
         <>
-          <Divider orientation="left" orientationMargin="0">
+          <Divider />
+          <div className={style.olabel}>
             {gstate.locale?.optionPannel.avifLable}
-          </Divider>
+          </div>
 
           <OptionItem desc={gstate.locale?.optionPannel.avifQuality}>
             <Slider

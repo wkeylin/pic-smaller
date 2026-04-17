@@ -4,3 +4,25 @@
     width: 100%;
   }
 }
+
+.cropInput {
+  margin-top: 16px;
+  > div:nth-child(1),
+  > div:nth-child(3) {
+    flex-grow: 1;
+  }
+  > div:nth-child(2) {
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 16px;
+    width: 28px;
+    text-align: center;
+  }
+}
+
+.olabel {
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 8px;
+}
